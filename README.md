@@ -3,7 +3,6 @@
 
 
 
-
 Description: 
 
 The web allows people to write their views about the place they visited, what they liked or disliked, what should be considered when visiting, and many other things.
@@ -30,7 +29,7 @@ Pages:
 
 Group/s:
 Mangers- group for control website, received problems to solve it, and accept and reject views.
-User- write thir thinks about place and write comment on another views, have account and profile to edit.
+User- write their thinks about place, write comment on another views, have account and his profile to edit
 
 All:
 -Homepage
