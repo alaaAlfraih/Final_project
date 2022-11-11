@@ -17,8 +17,8 @@ Features List:
 
 
 Pages:
--Homepage
--Register
+Homepage
+Register
 -Log in 
 -User profile 
 -view place
