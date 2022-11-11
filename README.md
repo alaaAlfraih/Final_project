@@ -1,4 +1,5 @@
 # Final_project
+
 Project name : Wijha
 
 Description:
@@ -9,9 +10,8 @@ The view will be received by managers, who will be responsible for determining w
 
 Features List:  
 \-Available to add any place  
-\-Good information about places
-
-*   Including many city
+\-Good information about places  
+\-Including many city
 
 \-All the posts will be sent to the management team to check everything and make sure it safe to share
 
