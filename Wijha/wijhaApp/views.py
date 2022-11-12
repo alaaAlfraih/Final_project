@@ -9,4 +9,14 @@ def home (request:HttpRequest):
     return render(request,'wijhaApp/home.html')
 
 
-# Create your views here.
+def register (request:HttpRequest):
+    return render(request,'wijhaApp/register.html')
+
+def login (request:HttpRequest):
+    return render(request,'wijhaApp/logIn.html')
+
+def add_view (request:HttpRequest):
+    return render(request,'wijhaApp/add_view.html')
+
+
+

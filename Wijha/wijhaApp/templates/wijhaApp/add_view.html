@@ -1,0 +1,39 @@
+{%extends "wijhaApp/base.html"%}
+{%load static%}
+
+{% block addView %}
+
+<div class="pt-4 container">
+  <h3>Add Place :</h3>
+  <hr>
+  <br>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+    <div class="input-group mb-3">
+        <span class="input-group-text">Place name:</span>
+        <input type="text" class="form-control" name="">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Place city:</span>
+        <input type="text" class="form-control" name="">
+      </div>
+
+
+      <div class="input-group pt-4">
+        <span class="input-group-text">Your view :</span>
+        <textarea class="form-control" aria-label="With textarea" name=""></textarea>
+      </div>
+
+      <div class="pt-4">
+      <input type="submit" value="Create"/>
+
+    </div>
+
+
+
+    </form>
+</div>
+
+{% endblock %}
