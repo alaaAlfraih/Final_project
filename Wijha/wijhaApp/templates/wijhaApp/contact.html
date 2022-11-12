@@ -1,0 +1,53 @@
+{%extends "wijhaApp/base.html"%}
+{%load static%}
+ {% block contact %}
+
+
+
+
+
+<div class="container pt-4">
+
+  <!-- Pills content -->
+  <div class="tab-content pt-4">
+    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+      <form>
+        {% csrf_token %}
+        <!-- Email input -->
+        <div class="form-outline pt-4 mb-4">
+        <label class="form-label" for="loginName">name </label>
+          <input type="text" class="form-control" />
+        </div>
+        
+  
+        <!-- Password input -->
+        <div class="form-outline pt-4 mb-4">
+            <label class="form-label" for="loginPassword">Your email </label>
+          <input type="email" id="loginPassword" class="form-control" />
+          
+        </div>
+
+        	<div class="form-label">
+            <label class="control-label col-sm-2" for="comment">Your problem:</label>
+            <div class="form-outline pt-4 mb-4">
+              <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+          </div>
+  
+          <div class="pt-4">
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">send </button>
+    
+    </div>
+      </form>
+    </div>
+
+
+</div>
+</div>
+  
+
+
+
+
+{% endblock %}

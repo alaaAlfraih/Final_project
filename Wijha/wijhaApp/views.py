@@ -18,5 +18,12 @@ def login (request:HttpRequest):
 def add_view (request:HttpRequest):
     return render(request,'wijhaApp/add_view.html')
 
+def contact (request:HttpRequest):
+    return render(request,'wijhaApp/contact.html')
+def control_view (request:HttpRequest):
+    return render(request,'wijhaApp/control_view.html')
+
+
+
 
 

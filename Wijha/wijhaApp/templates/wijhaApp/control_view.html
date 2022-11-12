@@ -1,0 +1,43 @@
+{%extends "wijhaApp/base.html"%}
+
+{%load static%}
+
+{% block control %}
+
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">title</th>
+            <th scope="col">publish date</th>
+            <th scope="col">is published</th>
+            <th scope="col">Edit</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"><a href=""></a></th>
+                <td>name</td>
+                <td>view</td>
+                <td>
+
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Edit
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="">Update</a></li>
+                          <li><a class="dropdown-item" href="">Delete</a></li>
+                        </ul>
+                      </div>
+
+                </td>
+            </tr>
+         
+
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
