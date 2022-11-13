@@ -4,32 +4,33 @@
 {% block addView %}
 
 <div class="pt-4 container">
-  <h3>إضافة وجهة جديدة</h3>
+  <h3 class="tx-color">إضافة وجهة جديدة</h3>
   <hr>
   <br>
 
     <form action="{% url 'wijhaApp:add_view' %}" method="POST">
         {% csrf_token %}
     <div class="input-group mb-3">
-        <span class="input-group-text"> أسم الوجهة </span>
+        <span class="input-group-text tx-color"> أسم الوجهة </span>
         <input type="text" class="form-control" name="place_name">
       </div>
 
       <div class="input-group mb-3">
-        <span class="input-group-text">المدينة</span>
+        <span class="input-group-text tx-color">المدينة</span>
         <input type="text" class="form-control" name="city">
       </div>
 
 
       <div class="input-group pt-4">
-        <span class="input-group-text">رأيك </span>
+        <span class="input-group-text tx-color">رأيك </span>
         <textarea class="form-control" aria-label="With textarea" name="content"></textarea>
       </div>
 
       <div class="pt-4">
       <!-- Submit button -->
-      <button type="submit" class="btn btn-primary btn-block mb-4">إرسال </button>
-      <input type="submit" name="" >
+      <!-- 
+      <button type="submit" class="btn btn-primary btn-block mb-4">إرسال </button> -->
+      <input type="submit" class="btn bk-nav btn-block mb-4 tx-color ">
       
 
     </div>

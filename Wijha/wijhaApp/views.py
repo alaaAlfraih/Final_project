@@ -12,11 +12,11 @@ def home (request:HttpRequest):
 #------------------------------------------------------------------------
 
 
-def register (request:HttpRequest):
-    return render(request,'wijhaApp/register.html')
+#def register (request:HttpRequest):
+    #return render(request,'wijhaApp/register.html')
 
-def login (request:HttpRequest):
-    return render(request,'wijhaApp/logIn.html')
+#def login (request:HttpRequest):
+    #return render(request,'wijhaApp/logIn.html')
 
 
 #------------------------------------------------------------------------

@@ -1,0 +1,38 @@
+body{
+    font-family: 'El Messiri', sans-serif; 
+  }
+  .bk-nav{
+    background-color: #e2e8ec;
+    
+}
+.tx-color{
+    color: #6f7ea3;
+ 
+    
+}
+.tx-color2{
+    color: #f5f5f5;;
+}
+.padse{
+    padding-top: 80px;
+    padding-bottom: 80px;
+    z-index: 2;
+}
+.bg-cover{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #f5f5f5;;
+}
+.hero-section{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-dr{
+    position: relative;
+    bottom: 70px;
+}
