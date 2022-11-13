@@ -1,0 +1,36 @@
+{%extends "wijhaApp/base.html"%}
+{%load static%}
+
+{% block view %}
+<div>
+    {% for places in place %}
+    <div class="container  pt-4">
+        
+
+          <div class="container card  pt-4 mb-3">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <hr>
+            <h5 class="card-title pt-4">اسم الوجهة</h5>
+            <p class="">{{ places.place_name }}</p>
+            
+            <h5 class="card-title">المدينة</h5>
+            <p class="">{{ places.city }}</p>
+            
+            <div class="card-block pt-4">
+              <h4 class="card-title">الوصف</h4>
+              <p class="card-text text-center">{{ places.content }}</p>
+              <p class="card-text"><small class="text-muted">{{ places.created_at }}</small></p>
+            </div>
+          </div>
+
+        <hr>
+       
+        
+        
+       
+
+
+</div>
+{% endfor %}
+
+{% endblock %}

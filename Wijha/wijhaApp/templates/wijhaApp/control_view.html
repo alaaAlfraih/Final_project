@@ -4,36 +4,43 @@
 
 {% block control %}
 
-<div class="container">
-    <table class="table">
+<div class="container pt-4">
+    <table class="table pt-4">
         <thead>
+            
         <tr>
-            <th scope="col">title</th>
-            <th scope="col">publish date</th>
-            <th scope="col">is published</th>
-            <th scope="col">Edit</th>
+            <th scope="col">قائمة الطلبات</th>
+            <th scope="col">الاسم</th>
+            <th scope="col">المكان</th>
+            <th scope="col">الوقت</th>
+            <th scope="col">تحرير</th>
         </tr>
         </thead>
         <tbody>
+            {% for places in place %}
             <tr>
+             
                 <th scope="row"><a href=""></a></th>
-                <td>name</td>
-                <td>view</td>
+                <td> {{ places.place_name }}</td>
+                <td>{{ places.city }}</td>
+                <td>{{ places.created_at }}</td>
                 <td>
 
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Edit
+                          تحرير
                         </button>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="">Update</a></li>
-                          <li><a class="dropdown-item" href="">Delete</a></li>
+                          <li><a class="dropdown-item" href="">عرض</a></li>
+                          <li><a class="dropdown-item" href="">حذف</a></li>
                         </ul>
                       </div>
 
                 </td>
             </tr>
          
+
+            {% endfor %}
 
         </tbody>
     </table>
