@@ -1,0 +1,23 @@
+{%extends "wijhaApp/base.html"%}
+{%load static%}
+
+
+{% block detile %}
+<div class="container">
+
+    <h1>{{ place.place_name }}</h1>
+<div class="container">
+    <p>{{ place.created_at }}, by {{ user }}</p>
+  
+    <!--
+    <img src="{{ post.image.url }}"  class="w-100"/>
+     -->
+    <div>
+        {{ place.content }}
+    </div>
+</div>
+
+<hr/>
+
+</div>
+{% endblock %}

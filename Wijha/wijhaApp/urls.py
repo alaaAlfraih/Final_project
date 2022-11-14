@@ -8,5 +8,7 @@ urlpatterns = [
     path('views',views.add_view,name="add_view"),
     path('contact/',views.contact,name="contact"),
     path('control/',views.control_view,name="control_view"),
-    path('places',views.list_places,name="list_places")
+    path('places',views.list_places,name="list_places"),
+    path('place/detail/<place_id>',views.detail_of_place,name="detail"),
+    #path('commint',views,name="commint")
 ]
