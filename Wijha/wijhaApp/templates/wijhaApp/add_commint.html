@@ -1,46 +1,14 @@
 {%extends "wijhaApp/base.html"%}
 {%load static%}
 
-
-{% block detile %}
-<div class="container">
-
-    <h1>{{ place.place_name }}</h1>
-<div class="container">
-    <p>{{ place.created_at }}, by {{ user }}</p>
-  
-    <!--
-    <img src="{{ post.image.url }}"  class="w-100"/>
-     -->
-    <div>
-        {{ place.content }}
-    </div>
-</div>
-
-{% endblock %}
-
-<hr>
-
 {% block commint %}
-
-<h2>تعليقات</h2>
-
-{% for comment in commint %}
-    <div class="border rounded p-3 mt-3">
-        <p>{{ comment.content }}</p>
-        <span>{{ comment.created_at }}</span>
-    </div>
-
-    {% endfor %}
-<hr/>
-
 
 <div class="container pt-4">
 
     <!-- Pills content -->
     <div class="tab-content pt-4">
       <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-        <form method="POST" action="{% url 'wijhaApp:detail' place.id %}">
+        <form method="POST">
           {% csrf_token %}
               <div class="form-label">
               <label class="control-label col-sm-2 tx-color" for="comment">التعليق</label>
@@ -61,6 +29,4 @@
   </div>
   </div>
 
-
-</div>
 {% endblock %}

@@ -49,16 +49,29 @@ def contact (request:HttpRequest):
 
 
 #------------------------------------------------------------------------
+#add commint
 
+def add_commint(request : HttpRequest, place_id : int):
+    palce=Place.objects.get(id=place_id)
+    if request.method=="POST":
+        new_commint=Comment(content=request.POST["content"])
+        new_commint.save()
+
+    return render(request,'wijhaApp/add_commint.html',palce.id)
+
+
+
+#------------------------------------------------------------------------
+#print detail of place
 def detail_of_place(request : HttpRequest, place_id : int):
 
     try:
         detail_of_place = Place.objects.get(id=place_id)
-        #comments = Comment.objects.filter(post = post)
+        comments = Comment.objects.filter( new_place = detail_of_place)
     except:
         return render(request ,"wijhaApp/home.html")
 
-    return render(request, "wijhaApp/place_detail.html", {"place" : detail_of_place})
+    return render(request, "wijhaApp/place_detail.html", {"place" : detail_of_place,"commint":comments})
 
 
 
