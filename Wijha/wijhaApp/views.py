@@ -90,7 +90,6 @@ def detail_of_place_manager(request : HttpRequest, place_id : int):
         detail_of_place = Place.objects.get(id=place_id)
     except:
         return render(request ,"wijhaApp/home.html")
-
     place=Place.objects.get(id=place_id)
     if request.method=="POST":
         place.is_approved=request.POST["is_approved"]
