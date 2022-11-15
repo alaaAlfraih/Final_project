@@ -20,12 +20,11 @@ def home (request:HttpRequest):
 
 def add_view (request:HttpRequest):
     user : User = request.user
-     #if not (user.is_authenticated and user.has_perm("blogApp.add_post")):
-        #return redirect("accounts:login_user")
-    if not (user.is_authenticated and user.has_perm("wijhaApp.add_view")):
+
+    if not (user.is_authenticated):
         return redirect("users:logIn")
     if request.method=="POST":
-        new_place=Place(user=request.user ,place_name=request.POST["place_name"],city=request.POST["city"],content=request.POST["content"])
+        new_place=Place(user=request.user ,place_name=request.POST["place_name"],city=request.POST["city"],content=request.POST["content"],image=request.FILES["image"])
         new_place.save()
 
     return render(request,'wijhaApp/add_view.html')
@@ -37,9 +36,11 @@ def add_view (request:HttpRequest):
 
 def list_places(request:HttpRequest):
     if "search" in request.GET:
-        places=Place.objects.filter(place_name__contains=request.GET["search"])
+        places=Place.objects.filter(place_name__contains=request.GET["search"],is_approved=True)
+
     else:
-        places=Place.objects.all()
+        places=Place.objects.filter(is_approved=True)
+
     return render(request,'wijhaApp/views_place.html',{"place":places})
 
 
@@ -80,16 +81,44 @@ def detail_of_place(request : HttpRequest, place_id : int):
     return render(request, "wijhaApp/place_detail.html", {"place" : detail_of_place,"commint":comments})
 
 
+#------------------------------------------------------------------------
+#print detail of place for manager
 
 
+def detail_of_place_manager(request : HttpRequest, place_id : int):
+
+    try:
+        detail_of_place = Place.objects.get(id=place_id)
+    except:
+        return render(request ,"wijhaApp/home.html")
+
+    return render(request, "wijhaApp/place_detail_manager.html", {"place" : detail_of_place})
+
+
+
+#------------------------------------------------------------------------
 
 def list_commint(request:HttpRequest):
     pass
 
-
+#------------------------------------------------------------------------
+#manager 
 def control_view (request:HttpRequest):
-    return render(request,'wijhaApp/control_view.html')
+    user : User = request.user
+    if not (user.is_authenticated and user.has_perm("wijhaApp.control_view")):
+       return redirect("users:logIn")
+    places=Place.objects.all()
 
+    return render(request,'wijhaApp/control_view.html',{"place":places})
+
+#is_approved  
+def manager_agree (request:HttpRequest,place_id):
+    place=Place.objects.get(id=place_id)
+    if request.method=="POST":
+        place.is_approved=request.POST["is_approved"]
+        place.save()
+        return redirect("wijhaApp:control_view")
+    return render(request, "wijhaApp/place_detail_manager.html", {"place" : place})
 
 
 

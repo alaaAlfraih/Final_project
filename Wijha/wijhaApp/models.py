@@ -7,6 +7,8 @@ class New_Place(models.Model):
     city=models.CharField(max_length=256)
     created_at=models.DateTimeField(auto_now=True)
     content=models.TextField()
+    image=models.ImageField(upload_to='images',blank=True,null=True)
+    is_approved = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return f"{self.place_name}, {self.created_at}"

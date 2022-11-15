@@ -1,0 +1,33 @@
+{%extends "wijhaApp/base.html"%}
+{%load static%}
+
+
+{% block detile %}
+<div class="container">
+
+    <h1>{{ place.place_name }}</h1>
+<div class="container">
+    <p>{{ place.created_at }}, من {{ user.first_name }}</p>
+  
+    <div>
+        {{ place.content }}
+    </div>
+
+
+    <form method="POST" action="{% url 'wijhaApp:detail_manager' place.id %}">
+        {% csrf_token %}
+        <select name="is_approved" class="form-select" aria-label="Default select example">
+          <option selected>حالة الطلب </option>
+          <option value="True">موافقة</option>
+          <option value="False">رفض</option>
+        </select>
+
+        <input type="submit" class="btn bk-nav btn-block mb-4 tx-color ">
+
+        
+      
+      </form>
+</div>
+
+{% endblock %}
+

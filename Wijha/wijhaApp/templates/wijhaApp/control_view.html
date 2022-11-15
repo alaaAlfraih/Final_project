@@ -17,24 +17,14 @@
         </tr>
         </thead>
         <tbody>
-            {% for places in place %}
+            {% for places in place%}
             <tr>
              
-                <th scope="row"><a href=""></a></th>
-                <td> {{ places.place_name }}</td>
+                <th scope="row"></th>
+                <td> <a href="{% url 'wijhaApp:detail_manager' places.id %}"> {{ places.place_name }}</a></td>
                 <td>{{ places.city }}</td>
                 <td>{{ places.created_at }}</td>
                 <td>
-
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          تحرير
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="">عرض</a></li>
-                          <li><a class="dropdown-item" href="">حذف</a></li>
-                        </ul>
-                      </div>
 
                 </td>
             </tr>
