@@ -111,6 +111,8 @@ def control_view (request:HttpRequest):
 
     return render(request,'wijhaApp/control_view.html',{"place":places})
 
+
+
 #is_approved  
 def manager_agree (request:HttpRequest,place_id):
     place=Place.objects.get(id=place_id)
@@ -119,6 +121,7 @@ def manager_agree (request:HttpRequest,place_id):
         place.save()
         return redirect("wijhaApp:control_view")
     return render(request, "wijhaApp/place_detail_manager.html", {"place" : place})
+    
 
 
 
