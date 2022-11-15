@@ -54,6 +54,9 @@
                     <a class="nav-link tx-color" href="{% url 'users:logIn' %}">تسجيل </a>
                   </li>
                 </ul>
+                <form role="search" method="GET" action="{% url 'wijhaApp:list_places' %}">
+                  <input class="form-control" type="search" placeholder="بحث" name="search" aria-label="Search">
+                </form>
               </div>
             </div>
           </nav>

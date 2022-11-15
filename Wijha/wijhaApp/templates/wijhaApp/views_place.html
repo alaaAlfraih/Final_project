@@ -2,7 +2,21 @@
 {%load static%}
 
 {% block view %}
-<div>
+<div class="container">
+
+
+<!--    
+  <form role="select" method="GET" action="{% url 'wijhaApp:list_places' %}">
+    <select class="form-select" aria-label="Default select example" name="select">
+      <option selected>أختر مدينة</option>
+      <option value="الرياض">الرياض</option>
+      <option value="جدة">جدة</option>
+      <option value="مكة">الدمام</option>
+    </select>
+  </form>
+
+  -->
+
     {% for places in place %}
     <div class="container  pt-4">
         

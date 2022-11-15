@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpRequest
 from.models import New_Place as Place
 from.models import Comment,Contact
@@ -20,6 +20,10 @@ def home (request:HttpRequest):
 
 def add_view (request:HttpRequest):
     user : User = request.user
+     #if not (user.is_authenticated and user.has_perm("blogApp.add_post")):
+        #return redirect("accounts:login_user")
+    if not (user.is_authenticated and user.has_perm("wijhaApp.add_view")):
+        return redirect("users:logIn")
     if request.method=="POST":
         new_place=Place(user=request.user ,place_name=request.POST["place_name"],city=request.POST["city"],content=request.POST["content"])
         new_place.save()
@@ -32,8 +36,10 @@ def add_view (request:HttpRequest):
 #list views 
 
 def list_places(request:HttpRequest):
-    places=Place.objects.all()
-    print(places)
+    if "search" in request.GET:
+        places=Place.objects.filter(place_name__contains=request.GET["search"])
+    else:
+        places=Place.objects.all()
     return render(request,'wijhaApp/views_place.html',{"place":places})
 
 
@@ -44,7 +50,6 @@ def contact (request:HttpRequest):
     if request.method=="POST":
         new_contact=Contact(name=request.POST["name"],email=request.POST["email"],problem=request.POST["problem"])
         new_contact.save()
-        print(new_contact)
     return render(request,'wijhaApp/contact.html')
 
 
@@ -68,6 +73,7 @@ def detail_of_place(request : HttpRequest, place_id : int):
     try:
         detail_of_place = Place.objects.get(id=place_id)
         comments = Comment.objects.filter( new_place = detail_of_place)
+        print(comments)
     except:
         return render(request ,"wijhaApp/home.html")
 

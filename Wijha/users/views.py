@@ -22,7 +22,7 @@ def login_user(request : HttpRequest):
         
         if user:
             login(request, user)
-            return redirect("wijgaApp:home")
+            return redirect("users:logIn")
         else:
             msg = "User Not Found , check your credentials"
 
