@@ -86,13 +86,19 @@ def detail_of_place(request : HttpRequest, place_id : int):
 
 
 def detail_of_place_manager(request : HttpRequest, place_id : int):
-
     try:
         detail_of_place = Place.objects.get(id=place_id)
     except:
         return render(request ,"wijhaApp/home.html")
 
-    return render(request, "wijhaApp/place_detail_manager.html", {"place" : detail_of_place})
+    place=Place.objects.get(id=place_id)
+    if request.method=="POST":
+        place.is_approved=request.POST["is_approved"]
+        place.save()
+        return redirect("wijhaApp:control_view")
+    return render(request, "wijhaApp/place_detail_manager.html", {"place_approv" : place,"place":detail_of_place})
+
+    #return render(request, "wijhaApp/place_detail_manager.html", {"place" : detail_of_place})
 
 
 
@@ -112,6 +118,7 @@ def control_view (request:HttpRequest):
     return render(request,'wijhaApp/control_view.html',{"place":places})
 
 
+#------------------------------------------------------------------------
 
 #is_approved  
 def manager_agree (request:HttpRequest,place_id):
