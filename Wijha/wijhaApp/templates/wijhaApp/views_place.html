@@ -1,6 +1,10 @@
 {%extends "wijhaApp/base.html"%}
 {%load static%}
 
+{% block title %}
+<title>الوجهات</title>
+{% endblock %}
+
 {% block view %}
 
 
@@ -17,7 +21,6 @@
            <!--  <img class="card-img-top " style="width: 500px;" src="{{ places.image.url }}" alt="Card image cap">
             <hr> -->
             <p class="card-text"><small class="text-muted">{{ places.created_at }}</small></p>
-            <p class="card-text"><small class="text-muted">{{ request.user.first_name }}</small></p>
             <h5 class="card-title ">اسم الوجهة</h5>
             <p class="">{{ places.place_name }}</p>
             
@@ -27,7 +30,7 @@
             <div class="card-block pt-4">
               <h4 class="card-title">الوصف</h4>
               <p class="card-text text-center">{{ places.content }}</p>
-              <p class="card-text"><small class="text-muted"><a href="{% url 'wijhaApp:detail' places.id %}">تعليقات</a></small></p>
+              <p class="card-text"><small class="text-muted"><a class="tx-color" href="{% url 'wijhaApp:detail' places.id %}"> التفاصيل عن الوجهة</a></small></p>
             </div>
           </div>
 
@@ -42,3 +45,6 @@
 {% endfor %}
 
 {% endblock %}
+
+
+

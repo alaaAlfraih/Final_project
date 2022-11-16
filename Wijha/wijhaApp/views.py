@@ -81,13 +81,13 @@ def detail_of_place(request : HttpRequest, place_id : int):
     try:
         detail_of_place = Place.objects.get(id=place_id)
         comments = Comment.objects.filter( new_place = detail_of_place)
-        print(comments)
+        
     except Exception as e:
         print(e)
         return render(request ,"wijhaApp/home.html")
 
     if request.method=="POST":
-        new_commint=Comment(new_place= detail_of_place, content=request.POST["content"], user_name=request.user.username)
+        new_commint=Comment(new_place= detail_of_place, content=request.POST["content"], user_name=request.POST["user_name"])
         new_commint.save()
 
     return render(request, "wijhaApp/place_detail.html", {"place" : detail_of_place,"commint":comments})
@@ -109,7 +109,7 @@ def detail_of_place_manager(request : HttpRequest, place_id : int):
         return redirect("wijhaApp:control_view")
     return render(request, "wijhaApp/place_detail_manager.html", {"place_approv" : place,"place":detail_of_place})
 
-    #return render(request, "wijhaApp/place_detail_manager.html", {"place" : detail_of_place})
+
 
 
 
@@ -125,16 +125,6 @@ def control_view (request:HttpRequest):
 
 
 #------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-def not_found (request:HttpRequest):
-    return render(request,'wijhaApp/not_found.html')
 
 
 

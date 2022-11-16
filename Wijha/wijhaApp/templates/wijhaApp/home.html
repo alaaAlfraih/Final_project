@@ -1,6 +1,11 @@
 {%extends "wijhaApp/base.html"%}
 {%load static%}
 
+{% block title %}
+<title>الرئيسية</title>
+{% endblock %}
+
+
 {% block home %}
 
 
@@ -31,7 +36,7 @@
 
 
   
-      <section class="padse">
+      <section class="padse bk-nav">
         <div class="container">
           <div class="row">
             <div class="col-12 section-intro text-center">
@@ -55,7 +60,7 @@
                   </div>
                 </div>
               </div>
-                <h5 class="mt-5 pt-4 text-center tx-color"> {{ places.place_name }}</h5>
+                <h5 class="mt-5 pt-4 text-center"> <a class="tx-color" href="{% url 'wijhaApp:detail' places.id %}">{{ places.place_name }}</a></h5>
                 <p class="text-center tx-color pt-4">
                   {{ places.city }}
                 </p>
@@ -66,8 +71,10 @@
             </div>
           </div>
           </section>
-
+      
 
 
 
 {% endblock %}
+
+
