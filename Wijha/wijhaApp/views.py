@@ -37,6 +37,7 @@ def add_view (request:HttpRequest):
 def list_places(request:HttpRequest):
     if "search" in request.GET:
         places=Place.objects.filter(place_name__contains=request.GET["search"],is_approved=True)
+        places=Place.objects.filter(city__contains=request.GET["search"],is_approved=True)
 
     else:
         places=Place.objects.filter(is_approved=True)
@@ -102,11 +103,6 @@ def detail_of_place_manager(request : HttpRequest, place_id : int):
 
 
 #------------------------------------------------------------------------
-
-def list_commint(request:HttpRequest):
-    pass
-
-#------------------------------------------------------------------------
 #manager 
 def control_view (request:HttpRequest):
     user : User = request.user
@@ -119,14 +115,22 @@ def control_view (request:HttpRequest):
 
 #------------------------------------------------------------------------
 
+
+def not_found (request:HttpRequest):
+    return render(request,'wijhaApp/not_found.html')
+
+
+
+
+
 #is_approved  
-def manager_agree (request:HttpRequest,place_id):
-    place=Place.objects.get(id=place_id)
-    if request.method=="POST":
-        place.is_approved=request.POST["is_approved"]
-        place.save()
-        return redirect("wijhaApp:control_view")
-    return render(request, "wijhaApp/place_detail_manager.html", {"place" : place})
+#def manager_agree (request:HttpRequest,place_id):
+    #place=Place.objects.get(id=place_id)
+    i#f request.method=="POST":
+       # place.is_approved=request.POST["is_approved"]
+        #place.save()
+        #return redirect("wijhaApp:control_view")
+    #return render(request, "wijhaApp/place_detail_manager.html", {"place" : place})
     
 
 

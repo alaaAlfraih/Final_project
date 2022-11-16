@@ -47,12 +47,33 @@
                   <li class="nav-item">
                     <a class="nav-link tx-color" href="{% url 'wijhaApp:contact' %}">إتصل بنا</a>
                   </li>
+
+             
                   <li class="nav-item">
                     <a class="nav-link tx-color" href="{% url 'wijhaApp:control_view' %}">قائمة الوجهات</a>
                   </li>
+
+
+                  <li class="nav-item">
+                    {% if request.user.is_authenticated %}
+   
+                      <strong class="nav-link tx-color" >{{ request.user.first_name }} أهلاً بك </strong>
+                      <a class="nav-link tx-color" href="{% url 'users:logout' %}">تسحيل خروج</a>
+
+                    </li>
+                
+                    {% else %}
+
+                    
                   <li class="nav-item">
                     <a class="nav-link tx-color" href="{% url 'users:logIn' %}">تسجيل </a>
                   </li>
+                    
+                    {% endif %}
+            
+
+
+
                 </ul>
                 <form role="search" method="GET" action="{% url 'wijhaApp:list_places' %}">
                   <input class="form-control" type="search" placeholder="بحث" name="search" aria-label="Search">
@@ -111,6 +132,10 @@
     <!-- ---------------------------------------------------------------------------------- -->
 
     {% block commint %}
+
+    {% endblock %}
+
+    {% block error %}
 
     {% endblock %}
 

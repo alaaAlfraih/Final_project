@@ -22,7 +22,7 @@ def login_user(request : HttpRequest):
         
         if user:
             login(request, user)
-            return redirect("users:logIn")
+            return render(request,'wijhaApp/home.html')
         else:
             msg = "User Not Found , check your credentials"
 
@@ -33,6 +33,6 @@ def logout_user(request: HttpRequest):
 
     logout(request)
 
-    return redirect("wijgaApp:home")
+    return render(request,'wijhaApp/home.html')
 
 # Create your views here.
