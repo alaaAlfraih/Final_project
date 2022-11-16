@@ -6,11 +6,20 @@
 <div class="container">
 
     <h1>{{ place.place_name }}</h1>
+
+
 <div class="container">
+
+
+  <img class="card-img-top w-50" src="{{ place.image.url }}" alt="Card image cap">
+
+
+  <hr>
+
     <p>{{ place.created_at }}, by {{ user }}</p>
   
     <!--
-    <img src="{{ post.image.url }}"  class="w-100"/>
+    < style="width: 500px;"
      -->
     <div>
         {{ place.content }}
@@ -46,11 +55,13 @@
 
 <div class="container pt-4">
 
-    <!-- Pills content -->
+    <!-- Pills content action="{% url 'wijhaApp:detail' place.id %}" -->
     <div class="tab-content pt-4">
       <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-        <form method="POST" action="{% url 'wijhaApp:detail' place.id %}">
+        <form method="POST"action="{% url 'wijhaApp:detail' place.id %}">
           {% csrf_token %}
+
+          
               <div class="form-label">
               <label class="control-label col-sm-2 tx-color" for="comment">التعليق</label>
               <div class="form-outline pt-4 mb-4">

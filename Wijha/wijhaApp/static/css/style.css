@@ -36,4 +36,15 @@ body{
     position: relative;
     bottom: 70px;
 }
+.img-dr{
+        position: relative;
+        left: 70px;
+
+}
+.section-intro {
+    margin-bottom: 40px;
+}
+.bk-page2{
+    background-color: #e2e8ec;
+}
 

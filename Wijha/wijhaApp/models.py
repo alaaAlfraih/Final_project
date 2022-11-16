@@ -22,7 +22,7 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.name}, {self.content}"
+        return f"{self.new_place.place_name}, {self.content}"
 
 class Contact(models.Model):
     name=models.CharField(max_length=256)

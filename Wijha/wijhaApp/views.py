@@ -3,6 +3,7 @@ from django.http import HttpRequest
 from.models import New_Place as Place
 from.models import Comment,Contact
 from django.contrib.auth.models import User
+import datetime
 
 
 
@@ -11,7 +12,12 @@ from django.contrib.auth.models import User
 #Home view
 
 def home (request:HttpRequest):
-    return render(request,'wijhaApp/home.html')
+    places=Place.objects.filter(created_at__gte=datetime.date.today(),is_approved=True)[:3]
+
+    return render(request,'wijhaApp/home.html',{"places":places})
+
+
+
 
 #------------------------------------------------------------------------
 
@@ -61,10 +67,10 @@ def contact (request:HttpRequest):
 def add_commint(request : HttpRequest, place_id : int):
     palce=Place.objects.get(id=place_id)
     if request.method=="POST":
-        new_commint=Comment(content=request.POST["content"])
+        new_commint=Comment(new_place= palce, content=request.POST["content"])
         new_commint.save()
 
-    return render(request,'wijhaApp/add_commint.html',palce.id)
+    return render(request,'wijhaApp/add_commint.html', {"place" : palce})
 
 
 
@@ -76,8 +82,13 @@ def detail_of_place(request : HttpRequest, place_id : int):
         detail_of_place = Place.objects.get(id=place_id)
         comments = Comment.objects.filter( new_place = detail_of_place)
         print(comments)
-    except:
+    except Exception as e:
+        print(e)
         return render(request ,"wijhaApp/home.html")
+
+    if request.method=="POST":
+        new_commint=Comment(new_place= detail_of_place, content=request.POST["content"], user_name=request.user.username)
+        new_commint.save()
 
     return render(request, "wijhaApp/place_detail.html", {"place" : detail_of_place,"commint":comments})
 
@@ -114,6 +125,12 @@ def control_view (request:HttpRequest):
 
 
 #------------------------------------------------------------------------
+
+
+
+
+
+
 
 
 def not_found (request:HttpRequest):

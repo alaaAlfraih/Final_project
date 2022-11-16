@@ -2,29 +2,22 @@
 {%load static%}
 
 {% block view %}
+
+
+
 <div class="container">
 
 
-<!--    
-  <form role="select" method="GET" action="{% url 'wijhaApp:list_places' %}">
-    <select class="form-select" aria-label="Default select example" name="select">
-      <option selected>أختر مدينة</option>
-      <option value="الرياض">الرياض</option>
-      <option value="جدة">جدة</option>
-      <option value="مكة">الدمام</option>
-    </select>
-  </form>
-
-  -->
 
     {% for places in place %}
     <div class="container  pt-4">
         
 
           <div class="container card  pt-4 mb-3">
-            <img class="card-img-top" style="width: 500px;" src="{{ places.image.url }}" alt="Card image cap">
-            <hr>
+           <!--  <img class="card-img-top " style="width: 500px;" src="{{ places.image.url }}" alt="Card image cap">
+            <hr> -->
             <p class="card-text"><small class="text-muted">{{ places.created_at }}</small></p>
+            <p class="card-text"><small class="text-muted">{{ request.user.first_name }}</small></p>
             <h5 class="card-title ">اسم الوجهة</h5>
             <p class="">{{ places.place_name }}</p>
             
