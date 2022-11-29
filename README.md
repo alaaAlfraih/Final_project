@@ -18,8 +18,7 @@ Features List:
 Pages:  
 \-Homepage  
 \-Register  
-\-Log in  
-\-User profile  
+\-Log in   
 \-view place  
 \-Add View  
 \-Receive view  
@@ -36,15 +35,13 @@ All:
 \-view place
 
 Mangers:  
-\-Log in  
-\-User profile  
+\-Log in   
 \-Add View  
 \-Receive view  
 \-Receive problems
 
 User:  
 \-Log in  
-\-User profile  
 \-view place  
 \-Add View  
 \-Contact
